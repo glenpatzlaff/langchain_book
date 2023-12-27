@@ -90,12 +90,9 @@ agent = (
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, memory=memory)
 
-# Streamlit UI setup
-st.title("Assistant with Tools")
-
 # Initialize or retrieve session state
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "What can I help you with?"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "What's on the menu today?"}]
 
 # Display chat history in Streamlit UI
 for msg in st.session_state.messages:
